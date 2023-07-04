@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+             body{
+                background-color: #e8eef7;
+                color:#000005;
+                /* background-color: rgb(197, 164, 228); */
+                
+            }
+            h1{
+                text-align: center;
+            }
+            table, th, td {
+                background-color:#fcfdff;;
+                color: rgb(0, 0, 0);
+                border: 1px solid black;
+                text-align: center;
+                margin-left: auto;  
+                margin-right: auto;  
+                /* margin-top: 10%; */
+                border-collapse: collapse;    
+                width: 800px;  
+            }
+            table, th, td {
+               border: 1px solid black;
+            }
+            form{
+                text-align: center;
+                margin-left: auto;  
+                margin-right: auto; 
+
+            }
+            /* .flex-container form {
+                display:table-cell;
+                width:200px;
+                background-color:#ffffff;
+                padding:40px 60px;
+                color:#505e6c;
+            }  */
+  
+            /* @media (max-width:991px) {
+           .flex-container form {
+                padding:40px;
+            }
+         } */
+            .flex-container {
+                display: flex;
+                /* color:#050404; */
+                /* background-color: rgb(200, 161, 223); */
+            }
+            .flex-container form .form-control{
+                width: 200px;
+                height: 35px;
+                border: none;
+                background-color: #e7eef8;
+
+            }
+
+            .flex-container > div {
+                background-color: #ffffff;
+                margin: 70px;
+                padding: 50px;
+                width: 750px;
+                font-size: 15px;
+            }
+
+            .flex-container form .form-check {
+                font-size:15px;
+                line-height:20px;
+            }
+            .flex-container form .btn-primary{
+                background:#f4476b;
+                border:none;
+                width: 200px;
+                height: 40px;
+                border-radius:3px;
+                padding:10px;
+                box-shadow:none;
+                margin-top:20px;
+                margin-right: 10px;
+                margin-left: 10px;
+                text-shadow:none;
+                outline:none !important;
+
+            }
+         </style>
+   
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>sending_request</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+
+    </head>
+    <body>
+        <a href='./login'><img src="../static/img/logo.jpg" alt="SL" width="50" height="50"></a>
+
+        <h1>Feed</h1>
+        <table>
+            <tr>
+                <th>ids</th>
+                <th>Username</th>
+                <th>caption</th>
+                <th>Delete</th>
+            </tr>
+            {% comment %} {%for i in y %} {% endcomment %}
+            {% for i,j,k in mylist%}
+            <tr>
+                <td>{{i}}</td>
+                <td>{{j}}</td>
+                <td>{{k}}</td>
+                <td><a class="btn btn-danger" href="/ShowFeed/{{i}}">Delete</a></td>
+    
+            </tr>
+                    {% comment %} {{y}} {% endcomment %}
+            {%endfor %}
+            </table>
+        <div class="flex-container">
+        <div>
+            <form name="sentMessage" id="contactForm" action = "update" method="post">
+                {%csrf_token %}
+                <h2 class="text-center"><strong>update</strong></h2>
+                {% comment %} <div class="form-group"><input class="form-control" type="text" name="username" placeholder="Enter your username"Required></div> {% endcomment %}
+                <div class="form-group"><input class="form-control" type="text" name="ids" placeholder="id"Required></div><br>
+                <div class="form-group"><input class="form-control" type="text" name="caption" placeholder="new caption"Required></div><br>
+                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">update</button></div>
+            </form>
+        </div>
+        </div>
+       
+        
+        <script src="" async defer></script>
+    </body>
+</html>
